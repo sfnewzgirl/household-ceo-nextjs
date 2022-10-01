@@ -1,17 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import type { NextPage } from 'next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
+import pagesData from '../data/pages.json';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import {PagesData, TabPanelProps} from '../types/index.types';
 import Typography from '@mui/material/Typography';
-
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -68,7 +65,9 @@ function VerticalTabs() {
             Monthly bill tracking
         </Typography>
         <Button variant="outlined" size="small">
-            Bills
+            <Link href="/bills" underline="none">
+                Bills
+            </Link>
         </Button>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -76,7 +75,9 @@ function VerticalTabs() {
             There's always something to do
         </Typography>
         <Button variant="outlined" size="small">
-            Honey Do
+            <Link href="/honeydo" underline="none">
+                Honey do
+            </Link>
         </Button>
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -84,7 +85,9 @@ function VerticalTabs() {
             Some things take a little more time and effort
         </Typography>
         <Button variant="outlined" size="small">
-            Projects
+            <Link href="/projects" underline="none">
+                Projects
+            </Link>
         </Button>
       </TabPanel>
     </Box>

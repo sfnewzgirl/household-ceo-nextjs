@@ -1,6 +1,8 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 const HoneyDo: NextPage = () => {
@@ -12,6 +14,11 @@ const HoneyDo: NextPage = () => {
         <Typography variant="h6" component="h1"  gutterBottom>
         What's on your list?
         </Typography>
+        <Button variant="outlined" size="small">
+            <Link href="/" underline="none">
+                Home
+            </Link>
+        </Button>
       </Container>
     );
   };

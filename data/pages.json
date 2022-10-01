@@ -1,0 +1,25 @@
+{
+    "pages": [
+        {
+            "bills": {
+                "href": "/bills",
+                "tabLabel": "Bills",
+                "tabTitle": "Monthly bill tracking"
+            }
+        },
+        {
+            "honeydo": {
+                "href": "/honeydo",
+                "tabLabel": "Honey Do",
+                "tabTitle": "There's always something to do"
+            }
+        },
+        {
+            "projects": {
+                "href": "/projects",
+                "tabLabel": "Projects",
+                "tabTitle": "Some things take a little more time and effort"
+            }
+        }
+    ]
+}
