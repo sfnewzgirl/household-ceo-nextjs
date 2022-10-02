@@ -1,0 +1,34 @@
+{
+    "items": [
+        {
+            "assignedTo": null,
+            "description": "One of the vanity mirror lights is out in the master bathroom",
+            "status": "To do",
+            "title": "Change lightbulb"
+        },
+        {
+            "assignedTo": 1,
+            "description": "Get rid of the old, dead plants on the back patio",
+            "status": "To do",
+            "title": "Throw away old plants"
+        },
+        {
+            "assignedTo": null,
+            "description": "Hang the new mirror we bought for Robin's room",
+            "status": "To do",
+            "title": "Hang mirror"
+        },
+        {
+            "assignedTo": 2,
+            "description": "Paint over the red wine stain on the kitchen wall from that broken bottle",
+            "status": "To do",
+            "title": "Touch up paint"
+        },
+        {
+            "assignedTo": null,
+            "description": "Sweep the patio that is now covered in fall leaves",
+            "status": "To do",
+            "title": "Sweep patio"
+        }
+    ]
+}

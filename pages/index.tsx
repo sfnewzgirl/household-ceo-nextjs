@@ -4,15 +4,26 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
-import pagesData from '../data/pages.json';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import {PagesData, TabPanelProps} from '../types/index.types';
+import {HomePageProps, PagesData, TabPanelProps} from '../types/index.types';
 import Typography from '@mui/material/Typography';
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+export async function getStaticProps() {
+    const pagesData = require ('../data/pages.json');
+    const pages = JSON.parse(pagesData);
+    console.log('state props ', pages);
+    return {
+      props: {
+        pages: pages.pages,
+      },
+    }
+  }
 
+function TabPanel(props: TabPanelProps) {
+  const { children, index, pages, value, ...other } = props;
+  console.log('pages ??? ', pages);
+  
   return (
     <div
       role="tabpanel"
@@ -37,7 +48,7 @@ function a11yProps(index: number) {
   };
 }
 
-function VerticalTabs() {
+function VerticalTabs({pages}) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -60,7 +71,7 @@ function VerticalTabs() {
         <Tab label="Honey Do" {...a11yProps(1)} />
         <Tab label="Projects" {...a11yProps(2)} />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel pages={pages} value={value} index={0}>
         <Typography variant="subtitle1" component="h1"  gutterBottom>
             Monthly bill tracking
         </Typography>
@@ -70,7 +81,7 @@ function VerticalTabs() {
             </Link>
         </Button>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel pages={pages} value={value} index={1}>
         <Typography variant="subtitle1" component="h1"  gutterBottom>
             There's always something to do
         </Typography>
@@ -80,7 +91,7 @@ function VerticalTabs() {
             </Link>
         </Button>
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel pages={pages} value={value} index={2}>
         <Typography variant="subtitle1" component="h1"  gutterBottom>
             Some things take a little more time and effort
         </Typography>
@@ -94,7 +105,9 @@ function VerticalTabs() {
   );
 }
 
-const HomePage: NextPage = () => {
+const HomePage: NextPage = (props: HomePageProps) => {
+    const {pages} = props;
+    console.log('pages ?? ', props.pages);
     return (
       <Container maxWidth="lg">
         <Typography variant="h4" component="h1" gutterBottom>
@@ -103,7 +116,7 @@ const HomePage: NextPage = () => {
         <Typography variant="h5" component="h1"  gutterBottom>
         The place where running the household is a collective effort
         </Typography>
-        <VerticalTabs />
+        <VerticalTabs pages={pages} />
       </Container>
     );
   };
